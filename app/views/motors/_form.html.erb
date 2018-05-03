@@ -1,0 +1,22 @@
+<%= form_with(model: motor, local: true) do |form| %>
+  <% if motor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(motor.errors.count, "error") %> prohibited this motor from being saved:</h2>
+
+      <ul>
+      <% motor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :motor_name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
